@@ -1,16 +1,12 @@
-import training.taylor.timetracker.core.dao.TimeEntryRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import training.taylor.timetracker.core.dao.TimeEntry;
 import training.taylor.timetracker.core.dao.TimeEntryRepository;
 
-import java.util.List;
-
 @Component
 public class Tracker {
 
-    private List<TimeEntry> entries = new ArrayList<>();
+    private final TimeEntryRepository timeEntryRepository;
 
     @Autowired
     public Tracker(TimeEntryRepository timeEntryRepository) {
@@ -22,16 +18,17 @@ public class Tracker {
     }
 
     public void remove(TimeEntry entry) {
-        if (entries.contains(entry)) {
-            entries.remove(entry);
-        }
+        // Implement removal logic using timeEntryRepository if needed
     }
 
     public int size() {
-        return entries.size();
+        // Implement size logic using timeEntryRepository if needed
+        return 0; // Placeholder value
     }
 
     public TimeEntry get(int index) {
-        return entries.get(index);
+        // Implement get logic using timeEntryRepository if needed
+        return null; // Placeholder value
     }
 }
+

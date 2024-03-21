@@ -1,4 +1,4 @@
-package training.taylor.timetracker.core;
+import training.taylor.timetracker.core.dao.TimeEntryRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -10,7 +10,7 @@ import java.util.List;
 @Component
 public class Tracker {
 
-    private final TimeEntryRepository timeEntryRepository;
+    private List<TimeEntry> entries = new ArrayList<>();
 
     @Autowired
     public Tracker(TimeEntryRepository timeEntryRepository) {

@@ -3,6 +3,8 @@ import org.springframework.stereotype.Component;
 import training.taylor.timetracker.core.dao.TimeEntry;
 import training.taylor.timetracker.core.dao.TimeEntryRepository;
 
+import java.util.Optional;
+
 @Component
 public class Tracker {
 
@@ -18,17 +20,16 @@ public class Tracker {
     }
 
     public void remove(TimeEntry entry) {
-        // Implement removal logic using timeEntryRepository if needed
+        timeEntryRepository.delete(entry);
     }
 
     public int size() {
-        // Implement size logic using timeEntryRepository if needed
-        return 0; // Placeholder value
+        return (int) timeEntryRepository.count();
     }
 
-    public TimeEntry get(int index) {
-        // Implement get logic using timeEntryRepository if needed
-        return null; // Placeholder value
+    public Optional<TimeEntry> get(int id) {
+        return timeEntryRepository.findById(id);
     }
 }
+
 
